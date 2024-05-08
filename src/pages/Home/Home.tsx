@@ -7,7 +7,7 @@ import FilmLIst from "../../components/FilmLIst/FilmLIst";
 
 const Home = () => {
   const [filmLIst, setFilmList] = useState<Film[]>();
-  const urlParams = "language=pt-BR&include_image_language=pt";
+  const urlParams = "language=pt-BR";
   const baseUrl = `https://api.themoviedb.org/3/company/10342/movies?${urlParams}`;
 
   const token = import.meta.env.VITE_API_KEY;

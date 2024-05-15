@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const StyledFilmCardContainer = styled.div`
   display: flex;
   /* height: 50px; */
-  background-color: blue;
+  background-color: white;
   img {
     max-height: 141px;
   }
   margin-top: 20px;
+  color: black;
   /* flex-wrap: wrap; */
 `;
 

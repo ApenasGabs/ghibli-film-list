@@ -6,23 +6,36 @@ import { Film, ListResultProps } from "../../types";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
 
 const Home = () => {
-  const [filmLIst, setFilmList] = useState<Film[]>();
+  const [filmList, setFilmList] = useState<Film[]>([]);
   const urlParams = "language=pt-BR";
-  const baseUrl = `https://api.themoviedb.org/3/company/10342/movies?${urlParams}`;
+  const baseUrl = `https://api.themoviedb.org/3/company/10342/movies`;
 
   const token = import.meta.env.VITE_API_KEY;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get<ListResultProps>(baseUrl, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        if (result.status === 200) {
-          setFilmList(result.data.results);
-          console.log("result: ", result);
+        let allFilms: Film[] = [];
+        let page = 1;
+        let totalPages = 1;
+
+        while (page <= totalPages) {
+          const result = await axios.get<ListResultProps>(
+            `${baseUrl}?page=${page}&${urlParams}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+
+          if (result.status === 200) {
+            allFilms = allFilms.concat(result.data.results);
+            totalPages = result.data.total_pages;
+            page++;
+          }
         }
+        setFilmList(allFilms);
       } catch (error) {
         message.error(`${error}`);
       }
@@ -31,7 +44,7 @@ const Home = () => {
     fetchData();
   }, [baseUrl, token]);
 
-  return <FilmLIst filmLIst={filmLIst} />;
+  return <FilmLIst filmLIst={filmList} />;
 };
 
 export default Home;

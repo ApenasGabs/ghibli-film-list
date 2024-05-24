@@ -1,30 +1,61 @@
-# React + TypeScript + Vite
+# Aplicação PWA: Lista de Filmes do Studio Ghibli
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo à aplicação PWA que traz o encantador mundo dos filmes do Studio Ghibli ao seu alcance! Com esta aplicação, você pode facilmente acompanhar os filmes que já assistiu, explorar novas obras-primas e até mesmo deixar que a aplicação escolha um filme para você. Aqui estão os principais recursos:
 
-Currently, two official plugins are available:
+### 🎬 Lista Completa dos Filmes do Studio Ghibli
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tenha acesso a uma lista abrangente de todos os filmes icônicos produzidos pelo Studio Ghibli. Cada filme vem com uma breve sinopse, diretor e data de lançamento, para que você possa explorar a rica história deste renomado estúdio de animação.
 
-## Expanding the ESLint configuration
+### ✅ Marque os Filmes que Já Assistiu
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Mantenha o controle dos filmes que você já assistiu! Basta marcar os filmes na lista e eles serão destacados, ajudando você a identificar rapidamente quais filmes já fazem parte da sua coleção de memórias.
 
-- Configure the top-level `parserOptions` property like this:
+### 🎲 Escolha Aleatória de Filmes
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Não consegue decidir qual filme assistir? Deixe a sorte decidir por você! Com apenas um clique, a aplicação escolhe aleatoriamente um filme que você ainda não assistiu, proporcionando uma experiência surpreendente e emocionante.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 🛠️ Recursos Adicionais
+
+- **Offline First**: Desfrute de uma experiência fluida, mesmo sem conexão com a internet. A aplicação funciona perfeitamente offline, graças à tecnologia PWA.
+- **Responsiva**: Totalmente responsiva e otimizada para todos os dispositivos, para que você possa acessar sua lista de filmes em qualquer lugar.
+- **Interface Intuitiva**: Design simples e intuitivo, tornando a navegação e a marcação dos filmes uma experiência agradável.
+
+### 🚀 Como Usar
+
+1. **Clone o repositório** :
+
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+
+   ```
+
+2. **Instale as dependências** :
+
+   ```bash
+   cd nome-do-repositorio
+   yarn install
+
+   ```
+
+3. **Configure o ambiente** :
+   Crie um arquivo `.env` na raiz do projeto e adicione seu Bearer Token do TMDB:
+   env
+   ` VITE_API_KEY=seu_bearer_token_aqui`
+4. **Inicie a aplicação** :
+   ```bash
+      yarn dev
+   ```
+
+### 📸 Capturas de Tela
+
+🚧 em breve 🚧
+
+### 🌟 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e novos recursos.
+
+### 📄 Licença
+
+Este projeto está licenciado sob a MIT License.
+
+Com esta aplicação, mergulhe no universo mágico do Studio Ghibli e aproveite cada filme com a certeza de que nenhum será esquecido. Boa diversão!

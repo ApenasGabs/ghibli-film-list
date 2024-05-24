@@ -1,0 +1,53 @@
+{
+  "short_name": "Studio Ghibli Universe",
+  "name": "Mergulhe no universo mágico do Studio Ghibli",
+  "description": "Com esta aplicação, mergulhe no universo mágico do Studio Ghibli e aproveite cada filme com a certeza de que nenhum será esquecido. Boa diversão!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "dir": "auto",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "../src/assets/",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://www.pwabuilder.com/assets/icons/icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://www.pwabuilder.com/assets/screenshots/screen1.png",
+      "sizes": "2880x1800",
+      "type": "image/png",
+      "description": "Uma captura de tela da página inicial"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "windows",
+      "url": "https://www.microsoft.com/store/apps/9nblggh4nns1"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Escolher Filme Aleatoriamente",
+      "url": "/random",
+      "description": "Escolha um filme aleatoriamente que você ainda não assistiu"
+    },
+    {
+      "name": "Lista de Filmes",
+      "url": "/list",
+      "description": "Veja a lista completa dos filmes do Studio Ghibli"
+    }
+  ]
+}

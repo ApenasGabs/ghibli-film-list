@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { message } from "antd";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
+import Navbar from "../../components/Navbar/Navbar";
 import { Film, ListResultProps } from "../../types";
 
 const Home = () => {
@@ -44,7 +45,14 @@ const Home = () => {
     fetchData();
   }, [baseUrl, token]);
 
-  return <FilmLIst filmLIst={filmList} />;
+  return (
+    <>
+      <Navbar />
+      <div className="pt-16 bg-black">
+        <FilmLIst filmLIst={filmList} />;
+      </div>
+    </>
+  );
 };
 
 export default Home;

@@ -22,32 +22,40 @@ Não consegue decidir qual filme assistir? Deixe a sorte decidir por você! Com 
 
 ### 🚀 Como Usar
 
-1. **Clone o repositório**:
+1. **Clone o repositório** :
 
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   Instale as dependências:
 
-  ```bash
- cd nome-do-repositorio
- npm install
+   ```
 
-2.  **Configure o ambiente**:
- Crie um arquivo .env na raiz do projeto e adicione seu Bearer Token do TMDB:
- env
- REACT_APP_TMDB_BEARER_TOKEN=seu_bearer_token_aqui
- Inicie a aplicação:
- bash
- Copiar código
- npm start
- 📸 Capturas de Tela
- Inclua aqui algumas capturas de tela da aplicação em funcionamento, destacando a lista de filmes, a funcionalidade de marcação e a escolha aleatória.
-````
+2. **Instale as dependências** :
 
-🌟 Contribuições
+   ```bash
+   cd nome-do-repositorio
+   yarn install
+
+   ```
+
+3. **Configure o ambiente** :
+   Crie um arquivo `.env` na raiz do projeto e adicione seu Bearer Token do TMDB:
+   env
+   ` VITE_API_KEY=seu_bearer_token_aqui`
+4. **Inicie a aplicação** :
+   ```bash
+      yarn dev
+   ```
+
+### 📸 Capturas de Tela
+
+🚧 em breve 🚧
+
+### 🌟 Contribuições
+
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e novos recursos.
 
-📄 Licença
+### 📄 Licença
+
 Este projeto está licenciado sob a MIT License.
 
 Com esta aplicação, mergulhe no universo mágico do Studio Ghibli e aproveite cada filme com a certeza de que nenhum será esquecido. Boa diversão!

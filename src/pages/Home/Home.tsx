@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 import { message } from "antd";
-import { Film, ListResultProps } from "../../types";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
+import { Film, ListResultProps } from "../../types";
 
 const Home = () => {
   const [filmList, setFilmList] = useState<Film[]>([]);

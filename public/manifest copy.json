@@ -11,13 +11,13 @@
   "lang": "pt-BR",
   "icons": [
     {
-      "src": "./android-chrome-512x512.png",
+      "src": "../src/assets/",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "./android-chrome-192x192.png",
+      "src": "https://www.pwabuilder.com/assets/icons/icon_192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
@@ -25,8 +25,8 @@
   ],
   "screenshots": [
     {
-      "src": "./screen1.png",
-      "sizes": "897x851",
+      "src": "https://www.pwabuilder.com/assets/screenshots/screen1.png",
+      "sizes": "2880x1800",
       "type": "image/png",
       "description": "Uma captura de tela da página inicial"
     }
@@ -48,11 +48,6 @@
       "name": "Lista de Filmes",
       "url": "/list",
       "description": "Veja a lista completa dos filmes do Studio Ghibli"
-    },
-    {
-      "name": "Lista de Filmes assistidos",
-      "url": "/watched",
-      "description": "Veja a lista dos filmes do Studio Ghibli que voce ja assistiu"
     }
   ]
 }

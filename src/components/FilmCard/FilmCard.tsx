@@ -7,11 +7,12 @@ import {
 
 interface FilmCardProps {
   filmData: Film;
-  viewMode: "list" | "card";
+  viewMode?: "list" | "card";
+  isListView?: boolean;
 }
 
-const FilmCard = ({ filmData, viewMode }: FilmCardProps) => {
-  return viewMode === "list" ? (
+const FilmCard = ({ filmData, isListView }: FilmCardProps) => {
+  return isListView ? (
     <StyledFilmCardContainer>
       {filmData.poster_path && (
         <img

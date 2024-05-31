@@ -3,13 +3,15 @@ import FilmCard from "../FilmCard/FilmCard";
 import { StyledFilmLIstContainer } from "./FilmLIst.styles";
 interface FilmLIstProps {
   filmLIst?: Film[];
-  isCard?: boolean;
+  isListView?: boolean;
 }
-const FilmLIst = ({ filmLIst }: FilmLIstProps) => {
+const FilmLIst = ({ filmLIst, isListView }: FilmLIstProps) => {
   return (
     <StyledFilmLIstContainer>
       {!!filmLIst?.length &&
-        filmLIst.map((film) => <FilmCard key={film.id} filmData={film} />)}
+        filmLIst.map((film) => (
+          <FilmCard key={film.id} filmData={film} isListView={isListView} />
+        ))}
     </StyledFilmLIstContainer>
   );
 };

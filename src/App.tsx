@@ -1,8 +1,8 @@
-import Home from './pages/Home/Home'
+import Home from "./pages/Home/Home";
 
 function App() {
   // https://www.themoviedb.org/company/10342/movie
-  
+
   return (
     <>
       <Home />
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

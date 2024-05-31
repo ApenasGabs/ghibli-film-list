@@ -1,8 +1,17 @@
+import { useAuth0 } from "@auth0/auth0-react";
+
 interface NavbarPops {
   onChangeViewClick: () => void;
+  onLoginClick: () => void;
+  onLogoutClick: () => void;
 }
 
-const Navbar = ({ onChangeViewClick }: NavbarPops) => {
+const Navbar = ({
+  onChangeViewClick,
+  onLoginClick,
+  onLogoutClick,
+}: NavbarPops) => {
+  const { isAuthenticated, user } = useAuth0();
   return (
     <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between">
       <div className="navbar-center hidden lg:flex">
@@ -32,37 +41,44 @@ const Navbar = ({ onChangeViewClick }: NavbarPops) => {
           />
         </div>
 
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+        {isAuthenticated ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                {<img alt="User profile image" src={user?.picture} />}
+              </div>
             </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                {isAuthenticated ? (
+                  <button onClick={onLogoutClick}>Sair</button>
+                ) : (
+                  <button onClick={onLoginClick}>entrar</button>
+                )}
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+        ) : (
+          <button className="btn btn-accent" onClick={onLoginClick}>
+            Entrar
+          </button>
+        )}
       </div>
     </div>
   );

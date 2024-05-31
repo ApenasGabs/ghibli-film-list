@@ -50,7 +50,7 @@ const FilmCard = ({ filmData, isListView }: FilmCardProps) => {
           <span>{filmData.release_date}</span>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
+          <button className="btn btn-primary">Ver informações</button>
         </div>
       </div>
     </div>

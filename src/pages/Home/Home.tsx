@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+import { useAuth0 } from "@auth0/auth0-react";
 import { message } from "antd";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
 import Navbar from "../../components/Navbar/Navbar";
@@ -15,12 +16,18 @@ const Home = () => {
   const [isLoginPage, setIsLoginPage] = useState(false);
 
   const token = import.meta.env.VITE_API_KEY;
+  const { logout } = useAuth0();
   const handleChangeView = () => {
     setViewMode((prev) => !prev);
   };
 
-  const handleLoginClick = () => {
+  const handleClickLogin = () => {
     setIsLoginPage((prev) => !prev);
+  };
+
+  const handleClickLogout = () => {
+    logout({ logoutParams: { returnTo: window.location.origin } });
+    // logout();
   };
 
   useEffect(() => {
@@ -60,8 +67,9 @@ const Home = () => {
   ) : (
     <>
       <Navbar
-        onLoginClick={handleLoginClick}
+        onLoginClick={handleClickLogin}
         onChangeViewClick={handleChangeView}
+        onLogoutClick={handleClickLogout}
       />
       <div className="pt-16 bg-black">
         <FilmLIst isListView={viewMode} filmLIst={filmList} />;

@@ -1,9 +1,18 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import Login from "../../pages/Login/Login";
+
 interface NavbarPops {
   onChangeViewClick: () => void;
   onLoginClick: () => void;
+  onLogoutClick: () => void;
 }
 
-const Navbar = ({ onChangeViewClick, onLoginClick }: NavbarPops) => {
+const Navbar = ({
+  onChangeViewClick,
+  onLoginClick,
+  onLogoutClick,
+}: NavbarPops) => {
+  const { isAuthenticated, user } = useAuth0();
   return (
     <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between">
       <div className="navbar-center hidden lg:flex">
@@ -11,6 +20,9 @@ const Navbar = ({ onChangeViewClick, onLoginClick }: NavbarPops) => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
+          <li>
+            <Login />
+          </li>
           <li>
             <button className="btn btn-ghost">Assistidos</button>
           </li>
@@ -40,10 +52,7 @@ const Navbar = ({ onChangeViewClick, onLoginClick }: NavbarPops) => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+              <img alt="Tailwind CSS Navbar component" src={user?.picture} />
             </div>
           </div>
           <ul
@@ -60,7 +69,11 @@ const Navbar = ({ onChangeViewClick, onLoginClick }: NavbarPops) => {
               <a>Settings</a>
             </li>
             <li>
-              <button onClick={onLoginClick}>entrar</button>
+              {isAuthenticated ? (
+                <button onClick={onLogoutClick}>Sair</button>
+              ) : (
+                <button onClick={onLoginClick}>entrar</button>
+              )}
             </li>
           </ul>
         </div>

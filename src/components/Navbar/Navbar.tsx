@@ -4,24 +4,26 @@ interface NavbarPops {
 
 const Navbar = ({ onChangeViewClick }: NavbarPops) => {
   return (
-    <div className="navbar bg-base-100 fixed top-0 w-full z-10">
-      <p>Ghibli Universe</p>
-      <div className="flex-1 navbar-center">
-        <button onClick={onChangeViewClick} className="btn btn-ghost">
-          Mudar visualização
-        </button>
+    <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between">
+      <div className="navbar-center hidden lg:flex">
+        <p>Ghibli Universe</p>
       </div>
-      <div className="navbar-start hidden lg:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Assistidos</a>
+            <button className="btn btn-ghost">Assistidos</button>
           </li>
           <li>
-            <a>Favoritos</a>
+            <button className="btn btn-ghost">Favoritos</button>
+          </li>
+          <li>
+            <button onClick={onChangeViewClick} className="btn btn-ghost">
+              Mudar visualização
+            </button>
           </li>
         </ul>
       </div>
-      <div className="flex-none gap-2">
+      <div className="flex-none gap-2 navbar-end">
         <div className="form-control">
           <input
             type="text"

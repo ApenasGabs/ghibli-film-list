@@ -6,26 +6,24 @@ import { message } from "antd";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
 import Navbar from "../../components/Navbar/Navbar";
 import { Film, ListResultProps } from "../../types";
-import Login from "../Login/Login";
 
 const Home = () => {
   const [filmList, setFilmList] = useState<Film[]>([]);
   const urlParams = "language=pt-BR";
   const baseUrl = `https://api.themoviedb.org/3/company/10342/movies`;
   const [viewMode, setViewMode] = useState(false);
-  const [isLoginPage, setIsLoginPage] = useState(false);
 
   const token = import.meta.env.VITE_API_KEY;
-  const { logout } = useAuth0();
+  const { logout, loginWithPopup } = useAuth0();
   const handleChangeView = () => {
     setViewMode((prev) => !prev);
   };
 
-  const handleClickLogin = () => {
-    setIsLoginPage((prev) => !prev);
+  const handleLoginButtonClick = () => {
+    loginWithPopup();
   };
 
-  const handleClickLogout = () => {
+  const handleLogoutButtonClick = () => {
     logout({ logoutParams: { returnTo: window.location.origin } });
     // logout();
   };
@@ -62,14 +60,12 @@ const Home = () => {
     fetchData();
   }, [baseUrl, token]);
 
-  return isLoginPage ? (
-    <Login />
-  ) : (
+  return (
     <>
       <Navbar
-        onLoginClick={handleClickLogin}
+        onLoginClick={handleLoginButtonClick}
         onChangeViewClick={handleChangeView}
-        onLogoutClick={handleClickLogout}
+        onLogoutClick={handleLogoutButtonClick}
       />
       <div className="pt-16 bg-black">
         <FilmLIst isListView={viewMode} filmLIst={filmList} />;

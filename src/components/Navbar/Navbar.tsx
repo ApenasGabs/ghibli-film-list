@@ -1,5 +1,4 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import Login from "../../pages/Login/Login";
 
 interface NavbarPops {
   onChangeViewClick: () => void;
@@ -20,9 +19,6 @@ const Navbar = ({
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <Login />
-          </li>
           <li>
             <button className="btn btn-ghost">Assistidos</button>
           </li>
@@ -45,38 +41,44 @@ const Navbar = ({
           />
         </div>
 
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img alt="Tailwind CSS Navbar component" src={user?.picture} />
+        {isAuthenticated ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                {<img alt="User profile image" src={user?.picture} />}
+              </div>
             </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                {isAuthenticated ? (
+                  <button onClick={onLogoutClick}>Sair</button>
+                ) : (
+                  <button onClick={onLoginClick}>entrar</button>
+                )}
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              {isAuthenticated ? (
-                <button onClick={onLogoutClick}>Sair</button>
-              ) : (
-                <button onClick={onLoginClick}>entrar</button>
-              )}
-            </li>
-          </ul>
-        </div>
+        ) : (
+          <button className="btn btn-accent" onClick={onLoginClick}>
+            Entrar
+          </button>
+        )}
       </div>
     </div>
   );

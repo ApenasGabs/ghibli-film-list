@@ -5,16 +5,22 @@ import { message } from "antd";
 import FilmLIst from "../../components/FilmLIst/FilmLIst";
 import Navbar from "../../components/Navbar/Navbar";
 import { Film, ListResultProps } from "../../types";
+import Login from "../Login/Login";
 
 const Home = () => {
   const [filmList, setFilmList] = useState<Film[]>([]);
   const urlParams = "language=pt-BR";
   const baseUrl = `https://api.themoviedb.org/3/company/10342/movies`;
   const [viewMode, setViewMode] = useState(false);
+  const [isLoginPage, setIsLoginPage] = useState(false);
 
   const token = import.meta.env.VITE_API_KEY;
   const handleChangeView = () => {
     setViewMode((prev) => !prev);
+  };
+
+  const handleLoginClick = () => {
+    setIsLoginPage((prev) => !prev);
   };
 
   useEffect(() => {
@@ -49,9 +55,14 @@ const Home = () => {
     fetchData();
   }, [baseUrl, token]);
 
-  return (
+  return isLoginPage ? (
+    <Login />
+  ) : (
     <>
-      <Navbar onChangeViewClick={handleChangeView} />
+      <Navbar
+        onLoginClick={handleLoginClick}
+        onChangeViewClick={handleChangeView}
+      />
       <div className="pt-16 bg-black">
         <FilmLIst isListView={viewMode} filmLIst={filmList} />;
       </div>

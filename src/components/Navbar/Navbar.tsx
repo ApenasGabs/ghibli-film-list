@@ -1,8 +1,9 @@
 interface NavbarPops {
   onChangeViewClick: () => void;
+  onLoginClick: () => void;
 }
 
-const Navbar = ({ onChangeViewClick }: NavbarPops) => {
+const Navbar = ({ onChangeViewClick, onLoginClick }: NavbarPops) => {
   return (
     <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between">
       <div className="navbar-center hidden lg:flex">
@@ -59,7 +60,7 @@ const Navbar = ({ onChangeViewClick }: NavbarPops) => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <button onClick={onLoginClick}>entrar</button>
             </li>
           </ul>
         </div>

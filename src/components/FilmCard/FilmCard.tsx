@@ -38,24 +38,24 @@ const FilmCard = ({ filmData, isListView }: FilmCardProps) => {
       </StyledFilmDescriptionContainer>
     </StyledFilmCardContainer>
   ) : (
-    <div className="card card-side bg-base-100 w-full sm:w-96 min-w-64 sm:min-w-96 h-auto sm:h-64  m-4">
+    <div className="card card-side bg-base-100 w-full sm:w-96 min-w-64 sm:min-w-96 h-auto sm:h-64 m-4 flex justify-between">
       {filmData.poster_path && (
-        <figure className="overflow-hidden">
+        <figure className="flex flex-start overflow-hidden">
           <img
-            className="object-contain w-full sm:w-96 h-48 sm:h-full"
+            className="object-cover w-full sm:w-72 h-48 sm:h-full"
             src={`https://image.tmdb.org/t/p/w400/${filmData.poster_path}`}
             alt={filmData.poster_path}
           />
         </figure>
       )}
-      <div className="card-body">
+      <div className="card-body p-1 w-5/6 justify-start">
         <div className="flex flex-col">
-          <h3 className="card-title text-lg md:text-xl flex flex-col ">
+          <h3 className="card-title text-lg md:text-xl flex flex-col">
             {filmData.title}
-            <span className="text-sm md:text-base">
-              {filmData.original_title}
-            </span>
           </h3>
+          <span className="text-sm md:text-base ">
+            {filmData.original_title}
+          </span>
           <span className="text-sm md:text-base">{filmData.release_date}</span>
         </div>
         <div className="card-actions justify-end mt-4">

@@ -13,34 +13,33 @@ const Navbar = ({
 }: NavbarPops) => {
   const { isAuthenticated, user } = useAuth0();
   return (
-    <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between">
-      <div className="navbar-center hidden lg:flex">
-        <p>Ghibli Universe</p>
+    <div className="navbar bg-base-100 fixed top-0 w-full z-10 justify-between px-4">
+      <div className="flex-1 lg:flex-none">
+        <p className="text-lg lg:text-xl">Ghibli Universe</p>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <button className="btn btn-ghost">Assistidos</button>
-          </li>
-          <li>
-            <button className="btn btn-ghost">Favoritos</button>
-          </li>
-          <li>
-            <button onClick={onChangeViewClick} className="btn btn-ghost">
-              Mudar visualização
-            </button>
-          </li>
-        </ul>
-      </div>
-      <div className="flex-none gap-2 navbar-end">
-        <div className="form-control">
+      <div className="flex-none lg:flex lg:items-center">
+        <div className="hidden lg:block">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <button className="btn btn-ghost">Assistidos</button>
+            </li>
+            <li>
+              <button className="btn btn-ghost">Favoritos</button>
+            </li>
+            <li>
+              <button onClick={onChangeViewClick} className="btn btn-ghost">
+                Mudar visualização
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div className="form-control flex-1 lg:flex-none">
           <input
             type="text"
             placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
+            className="input input-bordered w-full lg:w-auto"
           />
         </div>
-
         {isAuthenticated ? (
           <div className="dropdown dropdown-end">
             <div
@@ -69,13 +68,13 @@ const Navbar = ({
                 {isAuthenticated ? (
                   <button onClick={onLogoutClick}>Sair</button>
                 ) : (
-                  <button onClick={onLoginClick}>entrar</button>
+                  <button onClick={onLoginClick}>Entrar</button>
                 )}
               </li>
             </ul>
           </div>
         ) : (
-          <button className="btn btn-accent" onClick={onLoginClick}>
+          <button className="btn btn-accent ml-2" onClick={onLoginClick}>
             Entrar
           </button>
         )}

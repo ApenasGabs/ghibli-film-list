@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 interface NavbarPops {
   onChangeViewClick: () => void;
@@ -56,10 +57,14 @@ const Navbar = ({
       <div className="flex-none hidden lg:flex lg:items-center">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <button className="btn btn-ghost">Assistidos</button>
+            <Link to="/watched/movies" className="btn btn-ghost">
+              Assistidos
+            </Link>
           </li>
           <li>
-            <button className="btn btn-ghost">Favoritos</button>
+            <Link to="/favorites/movies" className="btn btn-ghost">
+              Favoritos
+            </Link>
           </li>
           <li>
             <button onClick={onChangeViewClick} className="btn btn-ghost">

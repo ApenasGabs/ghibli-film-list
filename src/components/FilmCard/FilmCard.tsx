@@ -9,9 +9,10 @@ interface FilmCardProps {
   filmData: Film;
   viewMode?: "list" | "card";
   isListView?: boolean;
+  onSaveFavorite: (filmData: Film) => void;
 }
 
-const FilmCard = ({ filmData, isListView }: FilmCardProps) => {
+const FilmCard = ({ filmData, isListView, onSaveFavorite }: FilmCardProps) => {
   return isListView ? (
     <StyledFilmCardContainer>
       {filmData.poster_path && (
@@ -59,7 +60,12 @@ const FilmCard = ({ filmData, isListView }: FilmCardProps) => {
           <span className="text-sm md:text-base">{filmData.release_date}</span>
         </div>
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary">Ver informações</button>
+          <button
+            onClick={() => onSaveFavorite(filmData)}
+            className="btn btn-primary"
+          >
+            Favoritar
+          </button>
         </div>
       </div>
     </div>

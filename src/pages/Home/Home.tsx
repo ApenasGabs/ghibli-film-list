@@ -19,6 +19,9 @@ const Home = () => {
   const handleLoginButtonClick = () => {
     loginWithPopup();
   };
+  const handleFavoriteButtonClick = (props: Film) => {
+    console.log("props: ", props);
+  };
 
   const handleLogoutButtonClick = () => {
     logout({ logoutParams: { returnTo: window.location.origin } });
@@ -69,7 +72,12 @@ const Home = () => {
         onLogoutClick={handleLogoutButtonClick}
       />
       <div className="pt-16 bg-black">
-        <FilmLIst isListView={viewMode} filmLIst={filmList} />;
+        <FilmLIst
+          onSaveFavorite={handleFavoriteButtonClick}
+          isListView={viewMode}
+          filmLIst={filmList}
+        />
+        ;
       </div>
     </>
   );

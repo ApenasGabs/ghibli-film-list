@@ -33,13 +33,7 @@ const Navbar = ({
             </li>
           </ul>
         </div>
-        <div className="form-control flex-1 lg:flex-none">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-full lg:w-auto"
-          />
-        </div>
+
         {isAuthenticated ? (
           <div className="dropdown dropdown-end">
             <div

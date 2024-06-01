@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const StyledFilmCardContainer = styled.div`
   display: flex;
-  /* height: 50px; */
+  flex-direction: row;
   background-color: white;
   img {
     max-height: 141px;
   }
   margin-top: 20px;
   color: black;
+  width: 90%;
   /* flex-wrap: wrap; */
 `;
 

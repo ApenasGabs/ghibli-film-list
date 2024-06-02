@@ -4,7 +4,7 @@ const Footer = () => {
       <aside>
         <p>
           Copyright © 2024 - All right reserved by
-          <a href="https://github.com/Apenasgabs">ApenasGabs</a>
+          <a href="https://github.com/Apenasgabs"> ApenasGabs</a>
         </p>
       </aside>
     </footer>
